@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'com.scheduler'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.javatuples:javatuples:1.2'
+    implementation project(':Scheduler.Common')
+    implementation project(':Scheduler.Access')
+}
+
+test {
+}

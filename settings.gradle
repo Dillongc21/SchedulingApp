@@ -1,0 +1,6 @@
+rootProject.name = 'SchedulingApp'
+include 'Scheduler.Client'
+include 'Scheduler.Common'
+include 'Scheduler.Access'
+include 'Scheduler.Business'
+

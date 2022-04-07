@@ -1,0 +1,8 @@
+User: noUserTest | 04/06/2022 at 03:55 PM MDT | Failed | Cause: Username not found
+User: admin | 04/06/2022 at 03:56 PM MDT | Failed | Cause: Incorrect password
+User: admin | 04/06/2022 at 03:56 PM MDT | Success
+User: admin | 04/06/2022 at 04:06 PM MDT | Success
+User: admin | 04/06/2022 at 04:12 PM MDT | Success
+User: admin | 04/06/2022 at 04:31 PM MDT | Failed | Cause: Incorrect password
+User: admin | 04/06/2022 at 04:31 PM MDT | Success
+User: admin | 04/06/2022 at 06:51 PM MDT | Success
