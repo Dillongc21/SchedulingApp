@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 
 /**
  * Abstract controller class that provides common functionality to (is the Parent of) {@link AddAppointmentController}
- * and {@link ModifyAppointmentController}. The view file that this class controls is <code>CustomerForm.fxml</code>.
+ * and {@link ModifyAppointmentController}. The view file that this class controls is <code>AppointmentForm.fxml</code>.
  *
  * @author Dillon Christensen
  */

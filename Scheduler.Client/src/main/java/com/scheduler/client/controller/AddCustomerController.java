@@ -9,7 +9,7 @@ import javafx.event.ActionEvent;
 import java.util.Objects;
 
 /**
- * Controller class for the FXML form for adding a {@link Customer}. The view file that this class controls is
+ * Controller class for the {@link Customer} adding UI. The view file that this class controls is
  * <code>CustomerForm.fxml</code>.
  *
  * @author Dillon Christensen

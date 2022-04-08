@@ -11,6 +11,12 @@ import javafx.event.ActionEvent;
 
 import java.util.Objects;
 
+/**
+ * Controller Class for the {@link Appointment} adding UI. The form associated with this class is
+ * <code>AppointmentForm.fxml</code>.
+ *
+ * @author Dillon Christensen
+ */
 public class AddAppointmentController extends AppointmentController {
 
     /**

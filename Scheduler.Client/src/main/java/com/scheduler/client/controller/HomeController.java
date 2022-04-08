@@ -3,7 +3,6 @@ package com.scheduler.client.controller;
 import com.scheduler.business.AppointmentService;
 import com.scheduler.business.CountryService;
 import com.scheduler.business.CustomerService;
-import com.scheduler.business.MonthTypeReportService;
 import com.scheduler.client.util.*;
 import com.scheduler.client.util.Navigator;
 import com.scheduler.client.util.SelectedTab;
@@ -33,6 +32,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * Controller class for the Home screen. The view file that this class controls is <code>Home.fxml</code>.
+ *
+ * @author Dillon Christensen
+ */
 public class HomeController implements Initializable {
 
     @FXML private TableView<Customer> custTable;
@@ -86,7 +90,9 @@ public class HomeController implements Initializable {
     private CustomerService customerService;
 
     /**
-     * Called to initialize a controller after its root element has been completely processed.
+     * Called to initialize a controller after its root element has been completely processed. Initializes class
+     * members, sets up event handlers for {@link Button buttons} and {@link ChoiceBox dropdowns}, binds and formats
+     * table cells, and sets up report generation and tab functionality.
      *
      * @param location  The location used to resolve relative paths for the root object, or
      *                  {@code null} if the location is not known.
@@ -137,6 +143,7 @@ public class HomeController implements Initializable {
         appContactCol.setCellValueFactory(new PropertyValueFactory<>("contactName"));
         appTypeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
         appStartCol.setCellValueFactory(new PropertyValueFactory<>("startDefault"));
+
         appStartCol.setCellFactory(column -> formatForZDTCell());
         appEndCol.setCellValueFactory(new PropertyValueFactory<>("endDefault"));
         appEndCol.setCellFactory(column -> formatForZDTCell());
@@ -160,6 +167,14 @@ public class HomeController implements Initializable {
             popUpAny15MinuteUpcomingAppointments();
     }
 
+    /**
+     * Handles button to generate reports. Depends on value from {@link #reportChoiceBox} to generate the correct
+     * report.
+     * Lambda Justification 1: Lambdas are used here for <code>switch</code> statement syntax. This syntax simplifies
+     * the statements, making them more human-readable and eliminates the need for <code>break</code> statements.
+     *
+     * @param event button click event
+     */
     private void handleReportBtn(ActionEvent event) {
         String selected = reportChoiceBox.getSelectionModel().getSelectedItem();
 
@@ -245,7 +260,10 @@ public class HomeController implements Initializable {
     }
 
     /**
-     * Handles 'Modify' button. Opens form to modify the currently selected customer. If no customer is selected
+     * Handles 'Modify' button on the 'Customers' tab. Opens form to modify the currently selected customer. If no
+     * customer is selected, a {@link NoCustomerSelectedException} is thrown, and caught with an error message
+     * displayed in the UI.
+     *
      * @param event button click event
      */
     public void handleCustomerModifyBtn(ActionEvent event) {
@@ -260,6 +278,13 @@ public class HomeController implements Initializable {
         }
     }
 
+    /**
+     * Handles 'Modify' button on the 'Appointments' tab. Opens form to modify the currently selected appointment. If no
+     * appointment is selected, a {@link NoAppointmentSelectedException} is thrown, and caught with an error message
+     * displayed in the UI.
+     *
+     * @param event button click event
+     */
     public void handleAppointmentModifyBtn(ActionEvent event) {
         try {
             ModifyAppointmentController.appointmentToModify = appTable.getSelectionModel().getSelectedItem();
@@ -272,6 +297,10 @@ public class HomeController implements Initializable {
         }
     }
 
+    /**
+     * Opens selected tab. Tab is remembered, i.e. when navigating to a different screen, the last tab opened is opened
+     * again when returning to the Home Screen.
+     */
     private void openSelectedTab() {
         if (selectedTab == SelectedTab.APPOINTMENTS)
             applicationTabs.getSelectionModel().select(appointmentsTab);
@@ -279,8 +308,12 @@ public class HomeController implements Initializable {
             applicationTabs.getSelectionModel().select(customersTab);
     }
 
-
-
+    /**
+     * Formats cell to display a {@link ZonedDateTime} in a more human-readable form. {@link Formatter} is used to
+     * generate the formatted string.
+     *
+     * @return formatted {@link TableCell}
+     */
     private TableCell<Appointment, ZonedDateTime> formatForZDTCell() {
         return new TableCell<>() {
             @Override
@@ -294,6 +327,10 @@ public class HomeController implements Initializable {
         };
     }
 
+    /**
+     * Listener for {@link Tab} change. The newly selected Tab is stored statically to be reopened, if navigated away
+     * and back to Home.
+     */
     private final ChangeListener<Tab> tabChangeListener = new ChangeListener<>() {
         @Override
         public void changed(ObservableValue<? extends Tab> observable, Tab oldValue, Tab newValue) {
@@ -301,6 +338,10 @@ public class HomeController implements Initializable {
         }
     };
 
+    /**
+     * Listener for toggling radio buttons. When toggled, the {@link Appointment} table is filtered according to
+     * {@link AppointmentTimeSpan}.
+     */
     private final ChangeListener<Toggle> appRadioListener = new ChangeListener<>() {
         @Override
         public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {

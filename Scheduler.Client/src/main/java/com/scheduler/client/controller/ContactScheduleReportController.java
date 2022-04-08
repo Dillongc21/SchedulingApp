@@ -18,6 +18,10 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Controller class for a report of {@link com.scheduler.common.model.Contact} schedules. Schedules are displayed in
+ * {@link TreeTableView} format to make Contact groupings (schedules) collapsable.
+ */
 public class ContactScheduleReportController implements Initializable {
 
     @FXML private TreeTableView<ContactScheduleReportItem> table;
@@ -36,12 +40,14 @@ public class ContactScheduleReportController implements Initializable {
     private TreeItem<ContactScheduleReportItem> root;
 
     /**
-     * Called to initialize a controller after its root element has been
-     * completely processed.
+     * Called to initialize a controller after its root element has been completely processed. Initializes class
+     * members, calls {@link #createAssignmentTree()} to set up table node relationships, binds data to table columns,
+     * and sets up event handlers.
      *
      * @param location  The location used to resolve relative paths for the root object, or
      *                  {@code null} if the location is not known.
-     * @param resources The resources used to localize the root object, or {@code null} if
+     * @param resources The resources used to localize the root object, or {@code null} if the root object was not
+     *                  localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -77,6 +83,9 @@ public class ContactScheduleReportController implements Initializable {
         closeBtn.setOnAction(Navigator::closeWindow);
     }
 
+    /**
+     *
+     */
     private void createAssignmentTree() {
         root = new TreeItem<>(
                 new ContactScheduleReportItem("All Items", null, null, null, null,
