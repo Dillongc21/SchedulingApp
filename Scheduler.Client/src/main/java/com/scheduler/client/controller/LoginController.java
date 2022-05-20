@@ -59,7 +59,7 @@ public class LoginController implements Initializable {
 
         service = UserService.getInstance();
 
-        localeDesc.setText(localeDesc.getText() + Locale.getDefault());
+        localeDesc.setText(localeDesc.getText() + ZoneId.systemDefault());
         bundle = ResourceBundle.getBundle("localization.Login", Locale.getDefault());
 
         greetingLabel.setText(bundle.getString("greeting"));

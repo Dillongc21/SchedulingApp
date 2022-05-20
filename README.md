@@ -12,3 +12,20 @@ The application is structured in a 3-tier structure with a common library betwee
 * Business (Logic)
 * Access (Back End)
 * Common (Library)
+
+## Screenshots
+
+### Login Screen
+<img src="screenshots/login.png" alt="Login" width=350px />
+
+### Home Screen &mdash; Customers Tab
+![Home Screen Customers Tab](screenshots/home_customers.png)
+
+### Home Screen &mdash; Appointments Tab
+![Home Screen Appointments Tab](screenshots/home_appts.png)
+
+### Modify Appointment Form
+![Form](screenshots/form.png)
+
+### Dynamically Generated Contact Schedule Report
+![Report](screenshots/report.png)
