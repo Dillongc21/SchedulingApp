@@ -19,13 +19,13 @@ The application is structured in a 3-tier structure with a common library betwee
 <img src="screenshots/login.png" alt="Login" width=350px />
 
 ### Home Screen &mdash; Customers Tab
-![Home Screen Customers Tab](screenshots/home_customers.png)
+<img src="screenshots/home_customers.png" alt="Home Screen Customers Tab" width=1000px />
 
 ### Home Screen &mdash; Appointments Tab
-![Home Screen Appointments Tab](screenshots/home_appts.png)
+<img src="screenshots/home_appts.png" alt="Home Screen Appointments Tab" width=1000px />
 
 ### Modify Appointment Form
-![Form](screenshots/form.png)
+<img src="screenshots/form.png" alt="Form" width=600px />
 
 ### Dynamically Generated Contact Schedule Report
-![Report](screenshots/report.png)
+<img src="screenshots/report.png" alt="Report" width=1000px />
